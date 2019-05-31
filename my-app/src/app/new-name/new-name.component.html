@@ -1,0 +1,46 @@
+<p [title]="title">
+  {{title}}
+</p>
+<div [innerHTML]="h"></div>
+<div [id]='id'>绑定属性了</div>
+<!-- 条件 -->
+<ul *ngIf="arr.length>0">
+  <li *ngFor="let item of arr;let i=index">{{item}}--{{i}}</li>
+</ul>
+<ul>
+  <li *ngFor="let item of arrObj">{{item.name}}+{{item.age}}</li>
+</ul>
+<br><br>
+<!-- switch -->
+<ul [ngSwitch]='num'>
+  <li *ngSwitchCase="1">1</li>
+  <li *ngSwitchCase="2">2</li>
+  <li *ngSwitchCase="3">3</li>
+  <li *ngSwitchCase="5">5</li>
+  <li *ngSwitchCase="6">6</li>
+  <li *ngSwitchCase="7">7</li>
+  <li *ngSwitchCase="8">8</li>
+  <li *ngSwitchDefault>
+    无效
+  </li>
+</ul>
+<br><br>
+<!-- 点击事件click-->
+<button (click)="clickMe(111)">点击我触发angular7事件</button>
+<input type="text" (keyup)='keyupme($event)'>
+<br><br>
+<!-- 数据双向绑定 -->
+<br>
+<input type="text" [(ngModel)]='iptval'>
+<input type="text" [(ngModel)]='iptval'>
+<br><br>
+<!-- 管道时间处理 -->
+<div>{{datenow|date:'yyyy-MM-dd hh:mm:ss'}}</div>
+<br><br>
+<!-- 大小写转换 -->
+<p>{{ddnum|uppercase}}</p>
+<p>{{ddnum|lowercase}}</p>
+<br><br>
+<div id="docm">我是对dom直接操作</div>
+<!-- 父组件传过来的值 -->
+<div (click)='clickme()'>{{parentVal}}</div>
